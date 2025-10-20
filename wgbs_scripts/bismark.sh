@@ -18,7 +18,7 @@ conda activate bismark_env
 
 INPUT_DIR=/wgbs_data/TrimGalore_Output
 OUTPUT_DIR=/wgbs_data/Bismark_Output
-GENOME_DIR=/projects/b1042/SznajderLab/sreynoso/Reference_genome
+GENOME_DIR=/wgbs_data/Reference_genome
 
 mkdir -p $OUTPUT_DIR
 
