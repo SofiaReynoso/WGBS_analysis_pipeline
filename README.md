@@ -20,44 +20,70 @@ Este repositorio contiene un flujo completo para análisis de datos de secuencia
 ## Construir los contenedores Docker
 
 ### QC, trimming y Bismark:
+```bash
 docker build -f docker/Dockerfile -t wgbs_pipeline .
-
+```
 ### BSMAP:
+```bash
 docker build -f docker/Dockerfile.bsmap -t wgbs_bsmap .
+```
 
 ## Ejecutar los contenedores y correrlos:
 
+### QC y trimming:
+```bash
 docker run -it -v /ruta/local/wgbs_analysis_pipeline/data:/work/data wgbs_pipeline bash
 
-### QC y trimming:
-
+# Dentro del contenedor
 source /opt/conda/etc/profile.d/conda.sh
 conda activate wgbs_qc_env
+
 bash /work/scripts/fastqc.sh
 bash /work/scripts/trim_galore.sh
 conda deactivate
+```
 
 ### Bismark:
+```bash
+docker run -it -v /ruta/local/wgbs_analysis_pipeline/data:/work/data wgbs_pipeline bash
 
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bismark_env
+# Preparación del genoma
 bash /work/scripts/bismark_genome_prep.sh
+
+# Alineamiento
 bash /work/scripts/bismark_alignment.sh
+
+# Merge de BAMs
 bash /work/scripts/merge_samtools.sh
+
+# Deduplicación
 bash /work/scripts/deduplicate_bismark.sh
+
+# Extracción de metilación
 bash /work/scripts/methylation_extraction.sh
+
 conda deactivate
+```
 
 ### BSMAP:
-
+```bash
 docker run -it -v /ruta/local/wgbs_analysis_pipeline/data:/work/data wgbs_bsmap bash
 
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bsmap_env
+# Alineamiento
 bash /work/scripts/bsmap_alignment.sh
+
+# Merge de BAMs
 bash /work/scripts/bsmap_merge.sh
+
+# Extracción de metilación
 bash /work/scripts/bsmap_methratio.sh
+
 conda deactivate
+```
 
 ----
 
