@@ -5,8 +5,8 @@ set -euo pipefail
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bsmap_env
 
-INPUT_DIR=/work/data/bsmap_merged
-OUTPUT_DIR=/work/data/bsmap_methylation
+INPUT_DIR=/work/data/bsmap/merged
+OUTPUT_DIR=/work/data/bsmap/methylation
 GENOME_DIR=/work/data/reference_genome
 
 mkdir -p "$OUTPUT_DIR"
