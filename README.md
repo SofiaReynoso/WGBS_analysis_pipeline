@@ -1,7 +1,12 @@
 
 
-# WGBS_analysis_pipeline
-Scripts y pipeline utilizados para el análisis de datos de secuenciación de bisulfito de genoma completo (WGBS). Este repositorio se encuentra asociado al desarrollo de mi tesis de maestría en Bioinformática y Biología de Sistemas.
+# WGBS analysis pipeline
+Este repositorio contiene un flujo completo para análisis de datos de secuenciación de bisulfito de genoma completo (WGBS), incluyendo:  
+
+- Control de calidad (FastQC, Trim Galore)
+- Alineamiento y análisis con **Bismark**
+- Alineamiento y análisis con **BSMAP**
+- Deduplicación y extracción de metilación
 
 ![Graph](https://github.com/user-attachments/assets/0a44dfe4-d254-4f08-9477-72ef724389a3)
 ----
