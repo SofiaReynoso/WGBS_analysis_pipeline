@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+
+  wgbs_qc_bismark:
+    image: wgbs_pipeline
+    container_name: wgbs_qc_bismark
+    volumes:
+      - ./:/work
+    working_dir: /work
+    tty: true
+    stdin_open: true
+    command: bash
+
+  wgbs_bsmap:
+    image: wgbs_bsmap
+    platform: linux/amd64
+    container_name: wgbs_bsmap
+    volumes:
+      - ./:/work
+    working_dir: /work
+    tty: true
+    stdin_open: true
+    command: bash
+

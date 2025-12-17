@@ -1,0 +1,33 @@
+# ==================================================
+# BSMAP container (x86_64 ONLY)
+# ==================================================
+
+FROM --platform=linux/amd64 ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    wget \
+    curl \
+    ca-certificates \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda \
+    && rm Miniconda3-latest-Linux-x86_64.sh
+
+ENV PATH=/opt/conda/bin:$PATH
+
+COPY bsmap_env2.yml /envs/bsmap_env2.yml
+
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r && \
+    conda env create -f /envs/bsmap_env2.yml && \
+    conda clean -a -y
+
+SHELL ["/bin/bash", "-c"]
+
+RUN conda init bash
+
+CMD ["bash"]

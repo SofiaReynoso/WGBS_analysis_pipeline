@@ -1,0 +1,9 @@
+name: bismark_env
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bismark
+  - bowtie2
+  - samtools
+
