@@ -4,8 +4,8 @@ set -euo pipefail
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bismark_env
 
-INPUT_DIR=/work/data/bismark_deduplicated
-OUTPUT_DIR=/work/data/bismark_methylation
+INPUT_DIR=/work/data/bismark/deduplicated
+OUTPUT_DIR=/work/data/bismark/methylation
 mkdir -p "$OUTPUT_DIR"
 
 for BAM_FILE in "$INPUT_DIR"/*.deduplicated.bam; do
