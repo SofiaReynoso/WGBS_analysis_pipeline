@@ -16,8 +16,8 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh 
 
 ENV PATH=/opt/conda/bin:$PATH
 
-COPY wgbs_qc_env.yml /envs/wgbs_qc_env.yml
-COPY bismark_env.yml /envs/bismark_env.yml
+COPY /envs/wgbs_qc_env.yml /envs/wgbs_qc_env.yml
+COPY /envs/bismark_env.yml /envs/bismark_env.yml
 
 RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
     conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
