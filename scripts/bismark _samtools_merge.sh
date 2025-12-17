@@ -1,30 +1,18 @@
 #!/bin/bash
+set -euo pipefail
 
-#SBATCH -A 
-#SBATCH -p 
-#SBATCH -t 4:00:00
-#SBATCH -n 4
-#SBATCH --mem=50G
-#SBATCH --mail-user=
-#SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --job-name=
-#SBATCH --output=
-#SBATCH --error=
-
-module load python-miniconda3/4.12.0
-eval "$(conda shell.bash hook)"
+source /opt/conda/etc/profile.d/conda.sh
 conda activate bismark_env
 
+INPUT_DIR=/work/data/bismark
+OUTPUT_DIR=/work/data/bismark/merged
+OUTPUT_FILE=$OUTPUT_DIR/merged.bam #modificar segun nombre de interes
+THREADS=4
 
-INPUT_DIR=/wgbs_data/Bismark_Output
-OUTPUT_DIR=/wgbs_data/Merged_Output
-OUTPUT_FILE=$OUTPUT_DIR/ENCBS046AAA_1.bam
+mkdir -p "$OUTPUT_DIR"
 
-mkdir -p $OUTPUT_DIR
-
-samtools merge -@ 4 $OUTPUT_FILE \
-  $INPUT_DIR/ENCFF001ZVU_trimmed_bismark_bt2.bam \
-  $INPUT_DIR/ENCFF001ZVX_trimmed_bismark_bt2.bam
+samtools merge -@ "$THREADS" "$OUTPUT_FILE" \
+  "$INPUT_DIR"/ENCFF001ZVU_trimmed_bismark_bt2.bam \ #modificar segun interes
+  "$INPUT_DIR"/ENCFF001ZVX_trimmed_bismark_bt2.bam #modificar segun interes
 
 conda deactivate
-
