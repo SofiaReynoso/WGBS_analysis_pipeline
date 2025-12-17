@@ -19,17 +19,17 @@ Este repositorio contiene un flujo completo para análisis de datos de secuencia
 
 ## Construir los contenedores Docker
 
-# QC, trimming y Bismark:
+### QC, trimming y Bismark:
 docker build -f docker/Dockerfile -t wgbs_pipeline .
 
-# BSMAP:
+### BSMAP:
 docker build -f docker/Dockerfile.bsmap -t wgbs_bsmap .
 
 ## Ejecutar los contenedores y correrlos:
 
 docker run -it -v /ruta/local/wgbs_analysis_pipeline/data:/work/data wgbs_pipeline bash
 
-#QC y trimming:
+### QC y trimming:
 
 source /opt/conda/etc/profile.d/conda.sh
 conda activate wgbs_qc_env
@@ -37,7 +37,7 @@ bash /work/scripts/fastqc.sh
 bash /work/scripts/trim_galore.sh
 conda deactivate
 
-#Bismark:
+### Bismark:
 
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bismark_env
@@ -48,7 +48,7 @@ bash /work/scripts/deduplicate_bismark.sh
 bash /work/scripts/methylation_extraction.sh
 conda deactivate
 
-#BSMAP:
+### BSMAP:
 
 docker run -it -v /ruta/local/wgbs_analysis_pipeline/data:/work/data wgbs_bsmap bash
 
