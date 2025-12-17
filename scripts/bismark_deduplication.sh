@@ -4,8 +4,8 @@ set -euo pipefail
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bismark_env
 
-INPUT_DIR=/work/data/merged
-OUTPUT_DIR=/work/data/deduplicated
+INPUT_DIR=/work/data/bismark_merged
+OUTPUT_DIR=/work/data/bismark_deduplicated
 
 mkdir -p "$OUTPUT_DIR"
 
