@@ -21,11 +21,11 @@ Este repositorio contiene un flujo completo para análisis de datos de secuencia
 
 ### QC, trimming y Bismark:
 ```bash
-docker build -f docker/Dockerfile -t wgbs_pipeline .
+docker build -f dockerfiles/Dockerfile -t wgbs_pipeline .
 ```
 ### BSMAP:
 ```bash
-docker build -f docker/Dockerfile.bsmap -t wgbs_bsmap .
+docker build -f dockerfiles/Dockerfile.bsmap -t wgbs_bsmap .
 ```
 
 ## Ejecutar los contenedores y correrlos:
