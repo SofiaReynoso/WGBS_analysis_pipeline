@@ -19,7 +19,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 
 ENV PATH=/opt/conda/bin:$PATH
 
-COPY bsmap_env2.yml /envs/bsmap_env2.yml
+COPY env/bsmap_env2.yml /envs/bsmap_env2.yml
 
 RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
     conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r && \
