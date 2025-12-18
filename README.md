@@ -80,7 +80,7 @@ bash /work/scripts/bsmap_alignment.sh
 bash /work/scripts/bsmap_merge.sh
 
 # Extracción de metilación
-bash /work/scripts/bsmap_methratio.sh
+bash /work/scripts/bsmap_meth_extract.sh
 
 conda deactivate
 ```
