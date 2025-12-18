@@ -1,8 +1,7 @@
 name: bsmap_env
 channels:
-  - conda-forge
   - bioconda
+  - conda-forge
 dependencies:
   - bsmap=2.90
-  - samtools=1.21
-
+  - samtools=0.1.19
