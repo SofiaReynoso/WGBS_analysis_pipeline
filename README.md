@@ -32,7 +32,7 @@ docker build -f dockerfiles/Dockerfile.bsmap -t wgbs_bsmap .
 
 ### QC y trimming:
 ```bash
-docker run -it -v /ruta/local/WGBS_analysis_pipeline/data:/work/data wgbs_pipeline bash
+docker run -it -v /ruta/local/WGBS_analysis_pipeline:/work wgbs_pipeline bash
 
 # Dentro del contenedor
 source /opt/conda/etc/profile.d/conda.sh
@@ -45,7 +45,7 @@ conda deactivate
 
 ### Bismark:
 ```bash
-docker run -it -v /ruta/local/WGBS_analysis_pipeline/data:/work/data wgbs_pipeline bash
+docker run -it -v /ruta/local/WGBS_analysis_pipeline:/work wgbs_pipeline bash
 
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bismark_env
@@ -69,7 +69,7 @@ conda deactivate
 
 ### BSMAP:
 ```bash
-docker run -it -v /ruta/local/WGBS_analysis_pipeline/data:/work/data wgbs_bsmap bash
+docker run -it -v /ruta/local/WGBS_analysis_pipeline:/work wgbs_bsmap bash
 
 source /opt/conda/etc/profile.d/conda.sh
 conda activate bsmap_env
