@@ -18,7 +18,7 @@ for FASTQ_FILE in "$INPUT_DIR"/*_trimmed.fq.gz; do
     bsmap \
         -a "$FASTQ_FILE" \
         -d "$GENOME_FILE" \
-        -o "$OUTPUT_BAM" \
+        -o "$OUTPUT_BAM" 
 done
 
 conda deactivate
