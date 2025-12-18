@@ -13,7 +13,7 @@ THREADS=4
 mkdir -p "$OUTPUT_DIR"
 
 if [ ! -d "$GENOME_DIR/Bisulfite_Genome" ]; then
-  echo "ERROR: Run genome preparation first.”
+  echo "ERROR: Run genome preparation first."
   exit 1
 fi
 
