@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - bismark
+  - bismark=0.24.2
   - bowtie2
   - samtools
 
